@@ -1,0 +1,80 @@
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700"
+    rel="stylesheet"
+  />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>NU Political Compass Test</title>
+  <link rel="icon" type="x-icon" href="logodotnew.png" />
+  <link rel="shortcut icon" type="x-icon" href="logodotnew.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <h1 class="title">NU Political Compass Test</h1>
+  <svg id="svgHeader" style="width: 100%" viewBox="0 0 112 19">
+    <text x="50%" y="15" class="svgHeader">SapplyValues</text>
+  </svg>
+  <div style="height: 10px; background-color: #e96300"></div>
+  <img src="" id="banner" />
+  <button class="button" onclick="location.href='quiz.html?shuffle=true';">
+    Click here to take the NU Political Compass Test and discover your real
+    political identity!
+  </button>
+  <p class="there">
+    <!-- * A few questions have been reworded as I feel some of them were poorly written.</br></br> -->
+    <b>There are <span id="numOfQuestions"></span></b>
+    Questions
+  </p>
+  <h3 class="descript">
+    Other political tests are built on faulty paradigms and false dichotomies,
+    which only confuses and misleads. The NU Political Compass Test however is
+    the true and most informative indicator of socio-political identity.
+  </h3>
+  <!-- <p>Both the original and the popular clone version have a number of issues and are very poorly coded. For starters, many users run into NaN errors. This happens when using the keyboard to press enter to go to the next page instead of clicking it. This doesn't apply at all to this version.</br></br>
+    Secondly, the original version does not properly generate an image. It puts an overlay on top of a CSS-defined background image, meaning that if you save the image, it just saves the overlay instead of the whole compass. This is fixed in this version.</br></br>
+    Thirdly, this version supports URL parameters, meaning you can easily share the link to your results and if you lose the image, you can find the results page entry with parameters in your history so you don't have to retake the whole test.</br></br>
+    Finally, the 8values / 9Axes UI is far better (in my opinion anyway). It looks nicer and takes less clicks to answer.</p>
+    <h2>Your questions / results suck!</h2>
+    <p>You will have to complain to the original Sapply creator. I did not make this test, I simply changed the UI.</p>
+	<h2>Privacy notice</h2>
+    <p>This site uses Google Analytics. As well at the end of the test, you will be given the option to fill out general demographic information about yourself. There will be 3 options. The first will take you to a small survey and will record your answers to that along with the results. The second will just record your results. The third will not record anything. All information recorded is totally anonymous.</p>
+    <h2>Legal notice</h2>
+    <p>Copyright (C) 2017-2019 8values</p>
+    <p>Copyright (C) 2020-2021 SapplyValues</p>
+    <p>8values, 9axes, and SapplyValues are licensed under the Expat/MIT license. You can find a copy of the license <a href="LICENSE">here</a> or on the <a href="https://github.com/SapplyValues/SapplyValues.github.io/blob/master/LICENSE">GitHub repo</a>.</p> -->
+
+  <script type="application/javascript" src="questions.js"></script>
+  <script type="text/javascript">
+    document.getElementById("numOfQuestions").innerHTML = questions.length;
+
+    window.onload = function () {
+      var background = new Image();
+      background.onload = function () {
+        var c = document.createElement("canvas");
+        c.width = 2500;
+        c.height = 2500;
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#EEEEEE";
+        ctx.fillRect(0, 0, 2500, 2500);
+        ctx.drawImage(
+          background,
+          0,
+          0,
+          background.width,
+          background.height,
+          0,
+          0,
+          c.width,
+          c.height
+        );
+
+        document.getElementById("banner").src = c.toDataURL();
+      };
+      background.src = "./compasssquare.jpg";
+    };
+  </script>
+</body>

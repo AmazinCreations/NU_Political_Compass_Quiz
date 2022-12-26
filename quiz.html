@@ -1,0 +1,203 @@
+<head>
+  <meta charset="utf-8" />
+  <title>NU Political Compass Test</title>
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700"
+    rel="stylesheet"
+  />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="x-icon" href="logodotnew.png" />
+  <link rel="shortcut icon" type="x-icon" href="logodotnew.png" />
+
+  <script type="application/javascript" src="questions.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <h1 class="title">NU Political Compass Test</h1>
+  <svg id="svgHeader" style="width: 100%" viewBox="0 0 112 19">
+    <text x="50%" y="15" class="svgHeader">NU Political Compass Test</text>
+  </svg>
+  <hr />
+  <h2 style="text-align: center" id="question-number">Loading...</h2>
+  <p class="question" id="question-text"></p>
+  <button
+    class="button answerbutton"
+    style="background-color: #228cdb"
+  ></button>
+  <br />
+  <button
+    class="button answerbutton"
+    style="background-color: #228cdb"
+  ></button>
+  <br />
+  <button
+    class="button answerbutton"
+    style="background-color: #228cdb"
+  ></button>
+  <br />
+  <button
+    class="button answerbutton"
+    style="background-color: #228cdb"
+  ></button>
+  <br />
+  <button class="small_button" onclick="prev_question()" id="back_button">
+    Back
+  </button>
+  <button class="small_button_off" id="back_button_off">Back</button><br />
+
+  <script>
+    // variables
+    var answers = new Object(); // Store user's answers
+    var qn = 0; // Current question order
+
+    // Populate questionsObject
+
+    var questionsObject = new Object(); // Question objects with ID keys
+    questions.forEach(populateQO);
+
+    function populateQO(value) {
+      questionsObject[value["id"]] = value;
+    }
+
+    // Populate & shuffle questionsOrder
+
+    var questionsOrder = Object.keys(questionsObject); //Array of shuffled question IDs
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("shuffle") == "true") {
+      shuffleArray(questionsOrder);
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Question initialization
+
+    init_question();
+
+    function init_question() {
+      const answerchoices = document.querySelectorAll(".answerbutton");
+
+      $("#question-text").html(questionsObject[questionsOrder[qn]].question);
+      $("#question-number").html(
+        "Question " + (qn + 1) + " of " + questionsOrder.length
+      );
+
+      // /*
+      // Beginning of Shuffling Answers.
+      function s(arr) {
+        let currentI = arr.length,
+          randomIndex;
+
+        while (currentI != 0) {
+          randomIndex = Math.floor(Math.random() * currentI);
+          currentI--;
+
+          [arr[currentI], arr[randomIndex]] = [
+            arr[randomIndex],
+            array[currentI],
+          ];
+        }
+        return arr;
+      }
+      let array = [0, 1, 2, 3];
+      s(array);
+      answerchoices.forEach((choice, index) => {
+        console.log(array[index]);
+        choice.textContent =
+          questionsObject[questionsOrder[qn]].answers[array[index]].text;
+
+        choice.onclick = () => {
+          next_question(
+            questionsObject[questionsOrder[qn]].answers[index].value
+          );
+        };
+      });
+      // */
+
+      if (jQuery.isEmptyObject(answers)) {
+        $("#back_button").hide();
+        $("#back_button_off").show();
+      } else {
+        $("#back_button").show();
+        $("#back_button_off").hide();
+      }
+    }
+
+    // Next question
+
+    function next_question(answer) {
+      if (qn === questionsOrder.length) {
+        return;
+      }
+
+      answers[questionsOrder[qn]] = answer;
+      qn++;
+
+      if (qn < questionsOrder.length) {
+        init_question();
+      } else {
+        results();
+      }
+    }
+
+    // Previous question
+
+    function prev_question() {
+      if (jQuery.isEmptyObject(answers)) {
+        $("#back_button").hide();
+        $("#back_button_off").show();
+        return;
+      }
+      qn--;
+
+      delete answers[questionsOrder[qn]];
+
+      init_question();
+    }
+
+    // RESULTS
+
+    function results() {
+      window.sessionStorage.answers = JSON.stringify(answers);
+      const resultstotal = Object.values(answers).reduce(
+        (total, answer) => {
+          const newTop = total.top + answer[1];
+          const newLeft = total.left + answer[0];
+          total.top = newTop;
+
+          total.left = newLeft;
+          console.log(total, answer);
+          return total;
+        },
+        { left: 0, top: 0 }
+      );
+      window.sessionStorage.results = JSON.stringify(resultstotal);
+      // Calculate final results
+
+      // prepare arguments
+
+      //return;
+      location.href =
+        window.location.hostname == "sapplyvalues.github.io"
+          ? `feedback.html`
+          : `results.html`;
+    }
+
+    // Calculate percentage
+
+    // prepare
+
+    // get max & scores
+
+    // calc score
+  </script>
+</body>
