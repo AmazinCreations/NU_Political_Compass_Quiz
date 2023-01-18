@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script>
+      onload = (event) => {
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: "Some TITLE 99",
+            body: "<h1>hello</h1><div>some text</div>",
+            email: "gautreddy94@gmail.com",
+          }),
+        });
+      };
+
+      window.addEventListener("load", (event) => {
+        console.log("page is fully loaded");
+      });
+    </script>
+  </head>
+  <body>
+    hello world
+  </body>
+</html>

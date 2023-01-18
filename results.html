@@ -9,6 +9,25 @@
   <link rel="shortcut icon" type="x-icon" href="logodotnew.png" />
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+         onload = (event) => {
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: "Some TITLE 99",
+            body: "<h1>hello</h1><div>some text</div>",
+            email: "gautreddy94@gmail.com",
+          }),
+        });
+      };
+
+      window.addEventListener("load", (event) => {
+        console.log("page is fully loaded");
+      });
+    </script>
     </head>
     
     <body>
@@ -120,8 +139,8 @@
 
             const resultsPrintEl = document.getElementById("results-print");
               // testing
-             // Results.left = -0.9
-            // Results.top = 0.9
+             //Results.left = 1.4
+            //Results.top = -1.2
             resultsPrintEl.textContent = `Your Results: (${Results.left}, ${Results.top})`
 
            // alert(`${Results.left}, ${Results.top}`)
@@ -151,17 +170,17 @@
                 nameOne.innerText = 'E.Michael Jones'
                 imgSrc.src =  'img/E.MichaelJones.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 1 && Results.top <= 2) {
+            } else if (Results.left > 0 && Results.left <= 1 && Results.top > 1 && Results.top <= 2) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Enoch Powell'
                 imgSrc.src =  'img/enochpowell.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 2 && Results.top <= 2) {
+            } else if (Results.left > 0 && Results.left <= 2 && Results.top > 1 && Results.top <= 2) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Peter Brimelow'
                 imgSrc.src =  'img/PeterBrimelow.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 3 && Results.top <= 2) {
+            } else if (Results.left > 0 && Results.left <= 3 && Results.top > 1 && Results.top <= 2) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Pat Buchanan'
                 imgSrc.src =  'img/PatBuchanan.jpg'
@@ -171,17 +190,17 @@
                 nameOne.innerText = 'Charles Coughlin'
                 imgSrc.src =  'img/CharlesCoughlin.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 1 && Results.top <= 3) {
+            } else if (Results.left > 0 && Results.left <= 1 && Results.top > 2 && Results.top <= 3) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Willis Carto'
                 imgSrc.src =  'img/WillisCarton.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 2 && Results.top <= 3) {
+            } else if (Results.left > 0 && Results.left <= 2 && Results.top > 2 && Results.top <= 3) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Madison Grant'
                 imgSrc.src =  'img/MadisonGrant.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 3 && Results.top <= 3) {
+            } else if (Results.left > 0 && Results.left <= 3 && Results.top > 2 && Results.top <= 3) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Charles Lindbergh'
                 imgSrc.src =  'img/CharlesLindhberg.jpg'
@@ -191,17 +210,17 @@
                 nameOne.innerText = 'José Antonio Primo de Rivera'
                 imgSrc.src =  'img/JoseAntonio.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 1 && Results.top <= 4) {
+            } else if (Results.left > 0 && Results.left <= 1 && Results.top > 3 && Results.top <= 4) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Oswald Mosley'
                 imgSrc.src =  'img/oswaldmosley.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 2 && Results.top <= 4) {
+            } else if (Results.left > 0 && Results.left <= 2 && Results.top > 3 && Results.top <= 4) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Warren Balogh'
                 imgSrc.src =  'img/WarrenBalogh.jpg'
                 description.innerText = 'Fusce et pharetra nisi. Duis tellus elit, vestibulum nec dolor eget, mattis ultricies arcu. Morbi blandit, libero et accumsan eleifend, ligula nibh ultrices lacus, ac vulputate tortor tortor vitae ipsum. Proin sollicitudin ipsum eget porttitor vehicula. Donec ac commodo mi, vel tempor diam. Nunc sagittis euismod erat vitae tincidunt. Nunc lacinia arcu est, eu dictum lectus molestie eu. Sed risus lectus, commodo in tristique a, laoreet dictum mauris. Sed at scelerisque dui. Vestibulum a aliquet sapien. Vivamus luctus aliquam tellus, sed facilisis metus volutpat id. Curabitur nec malesuada dolor, in volutpat nunc.'
-            } else if (Results.left > 0 && Results.left <= 3 && Results.top <= 4) {
+            } else if (Results.left > 0 && Results.left <= 3 && Results.top > 3 && Results.top <= 4) {
                  infoSection.style.display = 'block'
                 nameOne.innerText = 'Francis Parker Yockey'
                 imgSrc.src =  'img/FrancisParkerYockey.jpg'
@@ -219,6 +238,18 @@
 
              
            
+
+         fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: "NU Political Compass Test Results",
+            body: "<h1>hello</h1><div>some text</div>",
+            email: "gautreddy94@gmail.com",
+          }),
+        });
 
         }
 
