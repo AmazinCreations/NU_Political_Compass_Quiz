@@ -49,9 +49,9 @@
     </br>
 
     <section class="info-section">
-    <img src="img/CharlesDeGaulle.jpg" alt="picture" class="picture">
+    <img src="" alt="picture" class="picture">
     <p class="textresult">Your Nationalist is</p>
-    <p class="textresult nameOne">Charles De Gaulle</p>
+    <p class="textresult nameOne"></p>
     <p class="textdescript">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam justo magna, vitae volutpat leo cursus id. Praesent volutpat volutpat lorem a malesuada. Aenean pharetra aliquam odio, consequat dictum est euismod non. Morbi iaculis vel dui ac maximus. Vestibulum in ultricies ex. Proin quis dui sollicitudin, varius purus nec, egestas eros. Suspendisse a viverra erat. Suspendisse potenti. Vestibulum porta lorem at eros lacinia, sed fermentum ligula varius. Praesent quis venenatis orci. Duis laoreet elit ut risus molestie vulputate nec at mi. Ut dapibus dolor vel neque mollis, nec efficitur massa aliquet.</p>
     </section>
 
@@ -139,8 +139,8 @@
 
             const resultsPrintEl = document.getElementById("results-print");
               // testing
-             //Results.left = 1.4
-            //Results.top = -1.2
+            //  Results.left = 0.4
+            // Results.top = 0.4
             resultsPrintEl.textContent = `Your Results: (${Results.left}, ${Results.top})`
 
            // alert(`${Results.left}, ${Results.top}`)
@@ -151,9 +151,11 @@
             let description = document.querySelector(".textdescript")
 
         
-            if(Results.left > 0 && Results.left <= 1 && Results.top > 0 && Results.top <= 1) {
-                console.log('hello')
+            if (Results.left > 0 && Results.left <= 1 && Results.top > 0 && Results.top <= 1) {
                 infoSection.style.display = 'block'
+                nameOne.innerText = 'Charles De Gaulle'
+                imgSrc.src = 'img/CharlesDeGaulle.jpg'
+                description.innerText = 'ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam justo magna, vitae volutpat leo cursus id. Praesent volutpat volutpat lorem a malesuada. Aenean pharetra aliquam odio, consequat dictum est euismod non. Morbi iaculis vel dui ac maximus. Vestibulum in ultricies ex. Proin quis dui sollicitudin, varius purus nec, egestas eros. Suspendisse a viverra erat. Suspendisse potenti. Vestibulum porta lorem at eros lacinia, sed fermentum ligula varius. Praesent quis venenatis orci. Duis laoreet elit ut risus molestie vulputate nec at mi. Ut dapibus dolor vel neque mollis, nec efficitur massa aliquet.'
             } else if (Results.left > 0 && Results.left <= 2 && Results.top > 0 && Results.top <= 1) {
                 infoSection.style.display = 'block'
                 nameOne.innerText = 'Tucker Carlson'

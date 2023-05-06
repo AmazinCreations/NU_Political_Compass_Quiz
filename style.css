@@ -261,7 +261,16 @@ span.weight-300 {
   }
 
   .title {
-    display: none;
+    /* display: none; */
+    /* background-color: red; */
+  }
+
+  @media only screen and (max-width: 640px) {
+    .title {
+      /* background-color: red; */
+      font-size: 23px;
+      line-height: 1;
+    }
   }
 
   #svgHeader {
